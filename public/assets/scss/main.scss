@@ -1,0 +1,95 @@
+@import 'variables';
+
+// 1. Reset Básico
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// 2. Estilos Globales
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $color-text;
+    background-color: $color-bg-alt; // Fondo gris muy claro para contraste
+    padding: $spacer;
+}
+
+// 3. Tipografía
+h1, h2, h3, h4 {
+    font-family: $font-family-header;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: $spacer * 0.5;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; color: $color-primary; } // Subtítulos en verde esmeralda
+
+// 4. Componente: Layout Header
+header {
+    background-color: $color-bg;
+    padding: $spacer * 1.5;
+    border-radius: $border-radius;
+    box-shadow: $shadow-sm;
+    margin-bottom: $spacer * 2;
+    text-align: center;
+    border-bottom: 4px solid $color-primary; // Detalle verde vasco
+
+    p {
+        color: $color-text-muted;
+    }
+}
+
+// 5. Componente: Tarjeta de Local (Card) - REFRESCADO
+.card {
+    background-color: $color-bg;
+    border-radius: $border-radius;
+    padding: $spacer * 1.25;
+    margin-bottom: $spacer;
+    box-shadow: $shadow-md;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.05); // Borde casi invisible
+    
+    // Detalle de color en el lateral, alternando verde y morado
+    border-left: 6px solid $color-primary; 
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .provincia {
+        font-family: $font-family-header;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        color: $color-purple-safe; // Morado para la ubicación
+        font-weight: 600;
+        margin-bottom: $spacer * 0.25;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: $spacer * 0.25;
+    }
+
+    p {
+        color: $color-text-muted;
+        font-size: 0.95rem;
+    }
+}
+
+// 6. Enlaces
+a {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $color-primary-hover;
+    }
+}

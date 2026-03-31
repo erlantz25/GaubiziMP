@@ -1,0 +1,31 @@
+// ==========================================
+// GAUBIZI - SISTEMA DE DISEÑO (Luz & Vasco)
+// ==========================================
+
+// 1. Colores Semánticos (Paleta Base)
+$color-bg:         #FFFFFF;    // Fondo Puro
+$color-bg-alt:     #F3F4F6;    // Fondo Alternativo (Gris muy claro)
+$color-text:       #1F2937;    // Texto Principal (Gris casi negro)
+$color-text-muted: #6B7280;    // Texto Secundario/Silenciado
+
+// 2. Colores de Acento
+$color-primary:     #059669;    // Verde Esmeralda Moderno (Vasco)
+$color-primary-hover:#047857;   
+$color-purple-safe:  #8B5CF6;   // Morado Punto Morado (Seguridad)
+$color-danger:      #EF4444;    // Rojo Alerta
+
+// 3. Tipografía
+$font-family-base:  'Inter', sans-serif; // Necesitarás importarla en HTML
+$font-family-header:'Montserrat', sans-serif;
+$font-size-base:    16px;
+$line-height-base:  1.6;
+
+// 4. Espaciado y Formas
+$spacer:            1rem;       // 16px base
+$border-radius:     0.75rem;    // 12px redondeado moderno
+$shadow-sm:         0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$shadow-md:         0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+// 5. Breakpoints (Mobile First)
+$breakpoint-sm:     640px;
+$breakpoint-md:     768px;
