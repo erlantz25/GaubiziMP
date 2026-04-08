@@ -1,43 +1,39 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Gaubizi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
+<?php 
+$titulo = "Crear Cuenta - Gaubizi";
+require_once '../app/Views/layout/header.php'; 
+?>
 
-<header>
-    <h1>Únete a Gaubizi</h1>
-    <p>Crea tu cuenta para apoyar una comunidad más segura[cite: 36].</p>
-</header>
+<div class="app-container auth-wrapper">
+    <div class="auth-card">
+        <h2 style="font-size: 2rem; color: #F8FAFC; margin-bottom: 10px; text-align: center;">Únete a Gaubizi</h2>
+        <p style="color: #94A3B8; text-align: center; margin-bottom: 30px;">Crea tu cuenta para apoyar un ocio nocturno más seguro.</p>
 
-<main style="max-width: 400px; margin: 0 auto;">
-    <div class="card" style="border-left-color: #8B5CF6;"> <form action="index.php?url=procesar-registro" method="POST">
-            <div style="margin-bottom: 15px;">
-                <label style="display:block; margin-bottom:5px;">Nickname</label>
-                <input type="text" name="nickname" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd;">
+        <form action="index.php?url=procesar-registro" method="POST">
+            <div class="input-group">
+                <label>Nickname / Alias</label>
+                <input type="text" name="nickname" class="input-neon" required placeholder="Cómo te llamarán en la app">
             </div>
             
-            <div style="margin-bottom: 15px;">
-                <label style="display:block; margin-bottom:5px;">Email</label>
-                <input type="email" name="email" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd;">
+            <div class="input-group">
+                <label>Correo Electrónico</label>
+                <input type="email" name="email" class="input-neon" required placeholder="tu@email.com">
             </div>
-
-            <div style="margin-bottom: 20px;">
-                <label style="display:block; margin-bottom:5px;">Contraseña</label>
-                <input type="password" name="password" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd;">
+            
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" name="password" class="input-neon" required placeholder="Crea una contraseña segura">
             </div>
-
-            <button type="submit" style="background-color: #059669; color:white; border:none; padding:12px; width:100%; border-radius:8px; cursor:pointer; font-weight:bold;">
-                Registrarme
+            
+            <button type="submit" class="btn-primary btn-block" style="margin-top: 10px;">
+                Crear Cuenta
             </button>
         </form>
+        
+        <p style="text-align: center; margin-top: 25px; color: #94A3B8; font-size: 0.9rem;">
+            ¿Ya tienes cuenta? <a href="index.php?url=login" style="color: #A855F7; text-decoration: none; font-weight: 600;">Inicia sesión</a>
+        </p>
     </div>
-    <p style="text-align:center;"><a href="index.php?url=login">¿Ya tienes cuenta? Entra aquí</a></p>
-</main>
+</div>
 
 </body>
 </html>

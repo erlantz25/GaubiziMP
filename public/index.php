@@ -53,22 +53,22 @@ switch ($url) {
         break;
 
     case 'home':
-        echo "<h1>¡Bienvenido a Gaubizi!</h1>";
-        // Si hay un nickname en la sesión, el usuario está logueado
-        if(isset($_SESSION['nickname'])) {
-            echo "<p>Kaixo, <strong>" . htmlspecialchars($_SESSION['nickname']) . "</strong>! Ya estás dentro del sistema.</p>";
-            echo "<p><a href='index.php?url=locales'>Ir al Directorio de Locales</a> | <a href='index.php?url=logout'>Cerrar sesión</a></p>";
-        } else {
-            // Si no está logueado, mostramos opciones de entrada
-            echo "<p>La comunidad para un ocio seguro. <a href='index.php?url=login'>Iniciar Sesión</a> | <a href='index.php?url=registro'>Registrarse</a></p>";
-        }
+        require_once '../app/Controllers/HomeController.php';
+        $home = new HomeController();
+        $home->index();
+        break;
+
+    
+    
+    case 'local':
+        require_once '../app/Controllers/LocalController.php';
+        $controlador = new LocalController();
+        $controlador->ver();
         break;
 
     default:
-        // Si el usuario escribe una URL que no existe
-        echo "<h1>Error 404</h1>";
-        echo "<p>La página que buscas no se encuentra en Euskal Herria ni en ningún otro sitio.</p>";
-        echo "<a href='index.php?url=home'>Volver al inicio</a>";
+        // Por ahora, si escriben una ruta falsa, los mandamos al inicio
+        header("Location: index.php?url=home");
         break;
 }
 ?>

@@ -1,41 +1,48 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directorio de Locales - Gaubizi</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<?php 
+$titulo = "Directorio - Gaubizi";
+require_once '../app/Views/layout/header.php'; 
+?>
 
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
+<div class="app-container">
+    <h1 style="font-size: 2.5rem; color: #A855F7; margin-bottom: 5px;">Locales</h1>
+    <p style="color: #94A3B8; margin-bottom: 25px;">Directorio de red segura en Euskal Herria</p>
 
-    <header>
-        <h1>Directorio de Locales</h1>
-        <p>Espacios de ocio registrados en la red Gaubizi.</p>
-    </header>
+    <input type="text" class="search-bar" placeholder="Buscar por nombre o zona...">
 
-    <main>
-        <?php if (!empty($listaLocales)): ?>
-            
-            <?php foreach ($listaLocales as $local): ?>
-                <div class="card">
-                    <div class="provincia"><?php echo htmlspecialchars($local['provincia']); ?> - <?php echo htmlspecialchars($local['municipio']); ?></div>
-                    <h3><?php echo htmlspecialchars($local['nombre']); ?></h3>
-                    <p><?php echo htmlspecialchars($local['direccion']); ?></p>
+    <div class="filters">
+        <a href="#" class="filter-btn active">Todos</a>
+        <a href="#" class="filter-btn">Seguros</a>
+        <a href="#" class="filter-btn">Con Alertas</a>
+    </div>
+
+    <div class="cards-grid">
+        <?php if(!empty($locales)): ?>
+            <?php foreach($locales as $local): ?>
+            <div class="card-app">
+                <div class="card-header">
+                    <div>
+                        <h3>
+                            <a href="index.php?url=local&id=<?php echo $local['id']; ?>" style="color: white; text-decoration: none;">
+                                <?php echo htmlspecialchars($local['nombre']); ?>
+                            </a>
+                        </h3>
+                        <div class="card-info">
+                            <span>📍 <?php echo htmlspecialchars($local['municipio']); ?></span>
+                        </div>
+                    </div>
+                    <span class="badge safe">⛨ Seguro</span>
                 </div>
+                <p style="color: #94A3B8; font-size: 0.9rem; margin-top: 15px;">
+                    <?php echo htmlspecialchars($local['direccion']); ?>
+                </p>
+            </div>
             <?php endforeach; ?>
-
         <?php else: ?>
-            <p>No hay locales registrados en este momento.</p>
+            <p style="color: #94A3B8;">No se han encontrado locales.</p>
         <?php endif; ?>
-    </main>
+    </div>
 
-    <br>
-    <a href="index.php?url=home" style="color: #8a2be2;">Volver al inicio</a>
+</div>
 
 </body>
 </html>

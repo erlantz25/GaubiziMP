@@ -1,95 +1,141 @@
 @import 'variables';
 
-// 1. Reset Básico
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-// 2. Estilos Globales
 body {
     font-family: $font-family-base;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
-    color: $color-text;
-    background-color: $color-bg-alt; // Fondo gris muy claro para contraste
-    padding: $spacer;
-}
-
-// 3. Tipografía
-h1, h2, h3, h4 {
-    font-family: $font-family-header;
-    font-weight: 700;
-    color: $color-text;
-    margin-bottom: $spacer * 0.5;
-}
-
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; color: $color-primary; } // Subtítulos en verde esmeralda
-
-// 4. Componente: Layout Header
-header {
     background-color: $color-bg;
-    padding: $spacer * 1.5;
-    border-radius: $border-radius;
-    box-shadow: $shadow-sm;
-    margin-bottom: $spacer * 2;
-    text-align: center;
-    border-bottom: 4px solid $color-primary; // Detalle verde vasco
-
-    p {
-        color: $color-text-muted;
-    }
+    color: $color-text;
+    line-height: 1.5;
+    /* Dejamos espacio abajo para que la barra de navegación no tape el contenido */
+    padding-bottom: 90px; 
+    -webkit-font-smoothing: antialiased;
 }
 
-// 5. Componente: Tarjeta de Local (Card) - REFRESCADO
-.card {
-    background-color: $color-bg;
-    border-radius: $border-radius;
-    padding: $spacer * 1.25;
-    margin-bottom: $spacer;
-    box-shadow: $shadow-md;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.05); // Borde casi invisible
+/* Contenedor tipo móvil (Para que se vea bien en PC también) */
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Cabecera (Top) */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
     
-    // Detalle de color en el lateral, alternando verde y morado
-    border-left: 6px solid $color-primary; 
-
-    &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    .provincia {
-        font-family: $font-family-header;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        letter-spacing: 1px;
-        color: $color-purple-safe; // Morado para la ubicación
-        font-weight: 600;
-        margin-bottom: $spacer * 0.25;
-    }
-
-    h3 {
-        font-size: 1.25rem;
-        margin-bottom: $spacer * 0.25;
-    }
-
-    p {
-        color: $color-text-muted;
-        font-size: 0.95rem;
+    .logo {
+        font-size: 1.5rem; font-weight: 700;
+        span { color: $color-purple; text-shadow: 0 0 10px $color-purple-glow; }
     }
 }
 
-// 6. Enlaces
-a {
-    color: $color-primary;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
+/* Barra de Búsqueda */
+.search-bar {
+    width: 100%;
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: 50px;
+    padding: 14px 20px;
+    color: $color-text;
+    outline: none;
+    transition: all 0.3s;
+    margin-bottom: 20px;
 
-    &:hover {
-        color: $color-primary-hover;
+    &:focus {
+        border-color: $color-purple;
+        box-shadow: 0 0 15px $color-purple-glow;
+    }
+}
+
+/* Filtros (Botones Píldora) */
+.filters {
+    display: flex; gap: 10px; overflow-x: auto; margin-bottom: 24px; padding-bottom: 5px;
+    &::-webkit-scrollbar { display: none; } /* Ocultar scrollbar */
+
+    .filter-btn {
+        background-color: $color-surface;
+        color: $color-text-muted;
+        border: 1px solid $color-border;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        white-space: nowrap;
+        text-decoration: none;
+
+        &.active {
+            background-color: rgba(168, 85, 247, 0.15);
+            color: $color-purple;
+            border-color: $color-purple;
+            box-shadow: 0 0 10px $color-purple-glow inset;
+        }
+    }
+}
+
+/* Tarjetas (Estilo App) */
+.card-app {
+    background-color: $color-surface;
+    border-radius: $border-radius;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+
+    &:hover { border-color: $color-border; background-color: $color-surface-hover; }
+
+    .card-header {
+        display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;
+        h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    }
+
+    .card-info { color: $color-text-muted; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+}
+
+/* Badges (Insignias) */
+.badge {
+    padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+    &.safe { background-color: rgba(16, 185, 129, 0.15); color: $color-green; border: 1px solid rgba(16, 185, 129, 0.3); }
+    &.verified { background-color: rgba(168, 85, 247, 0.15); color: $color-purple; border: 1px solid rgba(168, 85, 247, 0.3); }
+}
+
+/* ==========================================
+   BARRA DE NAVEGACIÓN INFERIOR (BOTTOM NAV)
+   ========================================== */
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background-color: rgba(11, 15, 25, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid $color-border;
+    display: flex; justify-content: space-around;
+    padding: 12px 10px 20px; /* Padding extra abajo para iOS */
+    z-index: 1000;
+
+    .nav-item {
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+        color: $color-text-muted; text-decoration: none; font-size: 0.75rem; font-weight: 500;
+        transition: all 0.3s;
+
+        svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        &.active {
+            color: $color-purple;
+            svg {
+                stroke: $color-purple;
+                filter: drop-shadow(0 0 5px $color-purple-glow);
+            }
+            /* El puntito brillante debajo del icono activo que se ve en tus capturas */
+            position: relative;
+            &::after {
+                content: ''; position: absolute; bottom: -8px; width: 4px; height: 4px;
+                background-color: $color-purple; border-radius: 50%;
+                box-shadow: 0 0 8px $color-purple;
+            }
+        }
     }
 }

@@ -16,5 +16,15 @@ class Local {
         
         return $stmt->fetchAll();
     }
+
+    // Método para obtener un solo local por su ID
+    public function obtenerPorId($id) {
+        $query = "SELECT * FROM locales WHERE id = :id LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        
+        return $stmt->fetch();
+    }
 }
 ?>

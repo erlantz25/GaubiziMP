@@ -1,47 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Gaubizi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
+<?php 
+$titulo = "Iniciar Sesión - Gaubizi";
+require_once '../app/Views/layout/header.php'; 
+?>
 
-<header>
-    <h1>Iniciar Sesión</h1>
-    <p>Ongi etorri! Bienvenido de nuevo a Gaubizi.</p>
-</header>
+<div class="app-container auth-wrapper">
+    <div class="auth-card">
+        <h2 style="font-size: 2rem; color: #F8FAFC; margin-bottom: 10px; text-align: center;">Acceso Seguro</h2>
+        <p style="color: #94A3B8; text-align: center; margin-bottom: 30px;">Inicia sesión para entrar en la red Gaubizi</p>
 
-<main style="max-width: 400px; margin: 0 auto;">
-    
-    <?php if(isset($_GET['msg']) && $_GET['msg'] == 'registro_ok'): ?>
-        <div style="background-color: #D1FAE5; color: #065F46; padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-weight:600;">
-            ¡Registro completado! Ahora puedes iniciar sesión.
-        </div>
-    <?php endif; ?>
+        <?php if(isset($_GET['msg']) && $_GET['msg'] == 'registro_ok'): ?>
+            <div class="alert-success">¡Registro completado! Ya puedes iniciar sesión.</div>
+        <?php endif; ?>
 
-    <div class="card" style="border-left-color: #8B5CF6;"> 
         <form action="index.php?url=procesar-login" method="POST">
+            <div class="input-group">
+                <label>Correo Electrónico</label>
+                <input type="email" name="email" class="input-neon" required placeholder="tu@email.com">
+            </div>
             
-            <div style="margin-bottom: 15px;">
-                <label style="display:block; margin-bottom:5px; font-weight:600;">Email</label>
-                <input type="email" name="email" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; font-family:inherit;">
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" name="password" class="input-neon" required placeholder="••••••••">
             </div>
-
-            <div style="margin-bottom: 20px;">
-                <label style="display:block; margin-bottom:5px; font-weight:600;">Contraseña</label>
-                <input type="password" name="password" required style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; font-family:inherit;">
-            </div>
-
-            <button type="submit" style="background-color: #059669; color:white; border:none; padding:12px; width:100%; border-radius:8px; cursor:pointer; font-weight:bold; font-size:1rem;">
-                Entrar
+            
+            <button type="submit" class="btn-primary btn-block" style="margin-top: 10px;">
+                Iniciar Sesión
             </button>
         </form>
+        
+        <p style="text-align: center; margin-top: 25px; color: #94A3B8; font-size: 0.9rem;">
+            ¿No tienes cuenta? <a href="index.php?url=registro" style="color: #A855F7; text-decoration: none; font-weight: 600;">Regístrate aquí</a>
+        </p>
     </div>
-    <p style="text-align:center;"><a href="index.php?url=registro">¿No tienes cuenta? Regístrate</a></p>
-</main>
+</div>
 
 </body>
 </html>
