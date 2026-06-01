@@ -2,8 +2,8 @@ USE gaubizi_db;
 
 INSERT INTO tipos_incidente (nombre, protocolo_actuacion) VALUES
 ('Acoso o Agresión Sexista', 'Si sufres o presencias acoso, busca al personal del local o al Punto Morado más cercano. Llama al 112 en caso de emergencia inmediata.'),
-('Sospecha de Sumisión Química', 'Si notas mareos repentinos, visión borrosa o pérdida de control, avisa a tus amistades de inmediato. No te quedes a solas y acude a urgencias para solicitar un análisis toxicológico.'),
-('Discriminación LGTBIfóbica / Racista', 'Tienes derecho a un trato igualitario y seguro. Documenta lo ocurrido si es posible, busca testigos y contacta con el observatorio contra la LGTBIfobia o SOS Racismo de tu zona.'),
+('Sospecha de Sumisión Química', 'Si notas mareos repentinos, visión borrosa o pérdida de control, avisa a tus amistades de inmediato. No te quedes a solas y acude a urgencias para solicitar un análisis tox>
+('Discriminación LGTBIfóbica / Racista', 'Tienes derecho a un trato igualitario y seguro. Documenta lo ocurrido si es posible, busca testigos y contacta con el observatorio contra la LGTBIfobia o SOS Racism>
 ('Violencia Física o Peleas', 'Aléjate de la zona de peligro inmediatamente. No intervengas físicamente; avisa a la seguridad del local o a emergencias (112).');
 
 INSERT INTO locales (nombre, direccion, provincia, municipio, latitud, longitud) VALUES

@@ -7,12 +7,10 @@ body {
     background-color: $color-bg;
     color: $color-text;
     line-height: 1.5;
-    /* Dejamos espacio abajo para que la barra de navegación no tape el contenido */
     padding-bottom: 90px; 
     -webkit-font-smoothing: antialiased;
 }
 
-/* Contenedor tipo móvil (Para que se vea bien en PC también) */
 .app-container {
     max-width: 600px;
     margin: 0 auto;
@@ -21,7 +19,6 @@ body {
     min-height: 100vh;
 }
 
-/* Cabecera (Top) */
 .header-top {
     display: flex;
     justify-content: space-between;
@@ -34,7 +31,6 @@ body {
     }
 }
 
-/* Barra de Búsqueda */
 .search-bar {
     width: 100%;
     background-color: $color-surface;
@@ -52,7 +48,6 @@ body {
     }
 }
 
-/* Filtros (Botones Píldora) */
 .filters {
     display: flex; gap: 10px; overflow-x: auto; margin-bottom: 24px; padding-bottom: 5px;
     &::-webkit-scrollbar { display: none; } /* Ocultar scrollbar */
@@ -77,7 +72,6 @@ body {
     }
 }
 
-/* Tarjetas (Estilo App) */
 .card-app {
     background-color: $color-surface;
     border-radius: $border-radius;
@@ -96,16 +90,12 @@ body {
     .card-info { color: $color-text-muted; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
 }
 
-/* Badges (Insignias) */
 .badge {
     padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
     &.safe { background-color: rgba(16, 185, 129, 0.15); color: $color-green; border: 1px solid rgba(16, 185, 129, 0.3); }
     &.verified { background-color: rgba(168, 85, 247, 0.15); color: $color-purple; border: 1px solid rgba(168, 85, 247, 0.3); }
 }
 
-/* ==========================================
-   BARRA DE NAVEGACIÓN INFERIOR (BOTTOM NAV)
-   ========================================== */
 .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; right: 0;

@@ -1,5 +1,4 @@
 <?php 
-// Averiguamos en qué página estamos para pintar el botón del menú de color morado
 $rutaActual = isset($_GET['url']) ? $_GET['url'] : 'home'; 
 ?>
 <!DOCTYPE html>

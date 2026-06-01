@@ -5,6 +5,12 @@ require_once '../app/Views/layout/header.php';
 
 <div class="app-container auth-wrapper">
     <div class="auth-card">
+        <?php if(isset($_GET['error']) && $_GET['error'] == 'credenciales'): ?>
+    <div style="background-color: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.4); 
+                color: #EF4444; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem;">
+        Email o contraseña incorrectos. Inténtalo de nuevo.
+    </div>
+<?php endif; ?>
         <h2 style="font-size: 2rem; color: #F8FAFC; margin-bottom: 10px; text-align: center;">Acceso Seguro</h2>
         <p style="color: #94A3B8; text-align: center; margin-bottom: 30px;">Inicia sesión para entrar en la red Gaubizi</p>
 

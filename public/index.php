@@ -1,20 +1,8 @@
 <?php
-// ==========================================
-// FRONT CONTROLLER - GAUBIZI
-// ==========================================
-
-// 1. ARRANCAR EL MOTOR DE SESIONES (¡Debe ser lo primero!)
 session_start();
 
-// Mostrar errores (Recuerda quitar esto cuando el TFG esté terminado)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Capturar la ruta solicitada; si no hay ninguna, cargamos 'home' por defecto
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 
-// Enrutador básico
 switch ($url) {
     case 'locales':
         require_once '../app/Controllers/LocalController.php';
@@ -66,8 +54,74 @@ switch ($url) {
         $controlador->ver();
         break;
 
+    case 'reportar':
+    require_once '../app/Controllers/DenunciaController.php';
+    $denuncia = new DenunciaController();
+    $denuncia->mostrarFormulario();
+    break;
+
+case 'enviar-reporte':
+    require_once '../app/Controllers/DenunciaController.php';
+    $denuncia = new DenunciaController();
+    $denuncia->procesar();
+    break;
+
+    case 'admin':
+    require_once '../app/Controllers/AdminController.php';
+    $admin = new AdminController();
+    $admin->panel();
+    break;
+
+case 'cambiar-estado':
+    require_once '../app/Controllers/AdminController.php';
+    $admin = new AdminController();
+    $admin->cambiarEstado();
+    break;
+
+    case 'mapa':
+    require_once '../app/Controllers/MapaController.php';
+    $mapa = new MapaController();
+    $mapa->index();
+    break;
+    case 'perfil':
+    require_once '../app/Controllers/PerfilController.php';
+    $perfil = new PerfilController();
+    $perfil->index();
+    break;
+
+case 'guardar-favorito':
+    require_once '../app/Controllers/PerfilController.php';
+    $perfil = new PerfilController();
+    $perfil->guardarFavorito();
+    break;
+
+case 'quitar-favorito':
+    require_once '../app/Controllers/PerfilController.php';
+    $perfil = new PerfilController();
+    $perfil->quitarFavorito();
+    break;
+    case 'bot':
+    require_once '../app/Controllers/BotController.php';
+    $bot = new BotController();
+    $bot->index();
+    break;
+
+case 'bot-responder':
+    require_once '../app/Controllers/BotController.php';
+    $bot = new BotController();
+    $bot->responder();
+    break;
+    case 'guardar-resena':
+    require_once '../app/Controllers/LocalController.php';
+    $controlador = new LocalController();
+    $controlador->guardarResena();
+    break;
+    case 'cambiar-visibilidad-resena':
+    require_once '../app/Controllers/AdminController.php';
+    $admin = new AdminController();
+    $admin->cambiarVisibilidadResena();
+    break;
     default:
-        // Por ahora, si escriben una ruta falsa, los mandamos al inicio
         header("Location: index.php?url=home");
         break;
 }

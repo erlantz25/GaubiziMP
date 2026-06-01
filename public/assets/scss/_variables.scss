@@ -1,25 +1,14 @@
-// ==========================================
-// GAUBIZI - APP SYSTEM (Dark Neon)
-// ==========================================
-
-// 1. Fondos (Dark Navy/Black)
-$color-bg:         #0B0F19;    // Fondo principal de la App
-$color-surface:    #151A23;    // Fondo de tarjetas y barra de navegación
+$color-bg:         #0B0F19; 
+$color-surface:    #151A23;    
 $color-surface-hover: #1E2532;
-
-// 2. Colores Neón (Brillos y Acentos)
-$color-purple:     #A855F7;    // Morado Gaubizi
+$color-purple:     #A855F7;    
 $color-purple-glow: rgba(168, 85, 247, 0.4);
-$color-green:      #10B981;    // Verde Zona Segura
+$color-green:      #10B981;  
 $color-green-glow: rgba(16, 185, 129, 0.2);
-$color-red:        #EF4444;    // Rojo Alertas
-
-// 3. Textos y Tipografía
-$color-text:       #F8FAFC;    // Blanco
-$color-text-muted: #94A3B8;    // Gris azulado
+$color-red:        #EF4444;    
+$color-text:       #F8FAFC;    
+$color-text-muted: #94A3B8;    
 $font-family-base: 'Inter', sans-serif;
-
-// 4. Estilos de App
 $border-radius:    16px;
 $border-radius-sm: 8px;
 $border-color:     #2A2E39;
