@@ -1,0 +1,131 @@
+@import 'variables';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: $font-family-base;
+    background-color: $color-bg;
+    color: $color-text;
+    line-height: 1.5;
+    padding-bottom: 90px; 
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    
+    .logo {
+        font-size: 1.5rem; font-weight: 700;
+        span { color: $color-purple; text-shadow: 0 0 10px $color-purple-glow; }
+    }
+}
+
+.search-bar {
+    width: 100%;
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: 50px;
+    padding: 14px 20px;
+    color: $color-text;
+    outline: none;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+
+    &:focus {
+        border-color: $color-purple;
+        box-shadow: 0 0 15px $color-purple-glow;
+    }
+}
+
+.filters {
+    display: flex; gap: 10px; overflow-x: auto; margin-bottom: 24px; padding-bottom: 5px;
+    &::-webkit-scrollbar { display: none; } /* Ocultar scrollbar */
+
+    .filter-btn {
+        background-color: $color-surface;
+        color: $color-text-muted;
+        border: 1px solid $color-border;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        white-space: nowrap;
+        text-decoration: none;
+
+        &.active {
+            background-color: rgba(168, 85, 247, 0.15);
+            color: $color-purple;
+            border-color: $color-purple;
+            box-shadow: 0 0 10px $color-purple-glow inset;
+        }
+    }
+}
+
+.card-app {
+    background-color: $color-surface;
+    border-radius: $border-radius;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+
+    &:hover { border-color: $color-border; background-color: $color-surface-hover; }
+
+    .card-header {
+        display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;
+        h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    }
+
+    .card-info { color: $color-text-muted; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+}
+
+.badge {
+    padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+    &.safe { background-color: rgba(16, 185, 129, 0.15); color: $color-green; border: 1px solid rgba(16, 185, 129, 0.3); }
+    &.verified { background-color: rgba(168, 85, 247, 0.15); color: $color-purple; border: 1px solid rgba(168, 85, 247, 0.3); }
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background-color: rgba(11, 15, 25, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid $color-border;
+    display: flex; justify-content: space-around;
+    padding: 12px 10px 20px; /* Padding extra abajo para iOS */
+    z-index: 1000;
+
+    .nav-item {
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+        color: $color-text-muted; text-decoration: none; font-size: 0.75rem; font-weight: 500;
+        transition: all 0.3s;
+
+        svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        &.active {
+            color: $color-purple;
+            svg {
+                stroke: $color-purple;
+                filter: drop-shadow(0 0 5px $color-purple-glow);
+            }
+            /* El puntito brillante debajo del icono activo que se ve en tus capturas */
+            position: relative;
+            &::after {
+                content: ''; position: absolute; bottom: -8px; width: 4px; height: 4px;
+                background-color: $color-purple; border-radius: 50%;
+                box-shadow: 0 0 8px $color-purple;
+            }
+        }
+    }
+}
